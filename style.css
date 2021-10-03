@@ -1,0 +1,15 @@
+body{
+    font-size: 40px;
+    font-family: Helvetica , sans-serif;
+}
+.timer{
+    display: flex;
+    justify-content: center;
+
+}
+.value {
+    color: tomato;
+}
+.field{
+    padding-left: 20px;
+}
