@@ -1,12 +1,6 @@
-const refs = {
-    days : document.querySelector("[data-value='days']"),
-    hours : document.querySelector("[data-value='hours']"),
-    mins : document.querySelector("[data-value='mins']"),
-    secs : document.querySelector("[data-value='secs']")
-}
-
 class CountdownTimer {
-    constructor(targetDate) {
+    constructor(selector,targetDate) {
+        this.element = document.querySelector(selector);
         this.targetDate = Date.parse(targetDate);
         this.start()
     }
@@ -21,10 +15,10 @@ class CountdownTimer {
     }
 
     updateClock({days, hours, mins, secs}){
-        refs.days.innerHTML = days;
-        refs.hours.innerHTML = hours;
-        refs.mins.innerHTML = mins;
-        refs.secs.innerHTML = secs;
+        this.element.querySelector("[data-value = 'days']").innerHTML = days;
+        this.element.querySelector("[data-value='hours']").innerHTML = hours;
+        this.element.querySelector("[data-value='mins']").innerHTML = mins;
+        this.element.querySelector("[data-value='secs']").innerHTML = secs;
     }
 
     pad(value){
@@ -40,4 +34,6 @@ class CountdownTimer {
     }
 }
 
-const timer = new CountdownTimer("Jan 1, 2022");
+const timerNewYear = new CountdownTimer('#timer-1',"Jan 1, 2022");
+
+const timerMyBirthday = new CountdownTimer('#timer-2',"Nov 27, 2021");
